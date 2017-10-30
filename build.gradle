@@ -3,16 +3,17 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'junit', name: 'junit', version: '4.11',
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
 }
 
-plugins {
-    id 'org.springframework.boot' version '1.5.8.RELEASE'
+springBoot {
+    layoutFactory = new com.palash.ApplicationStart()
 }
